@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Profile</title>
+
+  <link rel="stylesheet" href="css/viewProfileCss.css">
+
+  <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+  <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+  <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+  <!------ Include the above in your HEAD tag ---------->
+
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+</head>
+<body onload="loadUserData()">
+
+<div class="container" style="margin-left: 37%">
+  <div class="row vertical-center">
+    <div class="col-lg-4 col-sm-6">
+
+      <div class="card hovercard">
+        <div class="cardheader">
+
+        </div>
+        <div class="avatar">
+          <img alt="" src="https://static-news.moneycontrol.com/static-mcnews/2019/04/TCS-Logo-770x433.jpg">
+        </div>
+        <div class="info">
+          <div class="title" id="name">
+
+          </div>
+          <div class="desc" >Passionate designer</div>
+
+          <div> Address </div>
+
+          <div class="title" id="address">
+          </div>
+          <div> Email </div>
+          <div class="title" id="email">
+          </div>
+
+        </div>
+
+        </div>
+        <div class="bottom">
+          <a class="btn btn-primary btn-twitter btn-sm" href="https://twitter.com/webmaniac">
+            <i class="fa fa-twitter"></i>
+          </a>
+          <a class="btn btn-danger btn-sm" rel="publisher"
+             href="https://plus.google.com/+ahmshahnuralam">
+            <i class="fa fa-google-plus"></i>
+          </a>
+          <a class="btn btn-primary btn-sm" rel="publisher"
+             href="https://plus.google.com/shahnuralam">
+            <i class="fa fa-facebook"></i>
+          </a>
+          <a class="btn btn-warning btn-sm" rel="publisher" href="https://plus.google.com/shahnuralam">
+            <i class="fa fa-behance"></i>
+          </a>
+        </div>
+      <h3 style="float: right">
+        <a href="home.html" >Back to Home <i class="fa fa-home" aria-hidden="false" style="color:#428bca"></i>
+        </a>
+      </h3>
+      </div>
+
+    </div>
+
+  </div>
+</div>
+</body>
+
+<script>
+
+  function loadUserData(){
+    let user = JSON.parse(localStorage.getItem("user"))
+    document.getElementById("name").innerHTML = user.name
+    document.getElementById("address").innerHTML = user.address
+    document.getElementById("email").innerHTML = user.email
+
+  }
+
+</script>
+</html>

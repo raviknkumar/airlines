@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <!-- fa -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+  <!--  sweet alert-->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+  <style>
+    button {
+      background-color: Transparent;
+      background-repeat: no-repeat;
+      border: none;
+      cursor: pointer;
+      overflow: hidden;
+      outline: none;
+    }
+  </style>
+
+</head>
+<body onload="getUserName()">
+<div>
+  <nav class="navbar navbar-default" onload="getUserName()">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="">TCS AirLines</a>
+      </div>
+      <ul class="nav navbar-nav">
+        <li><a href="home.html">Home</a></li>
+        <li><a href="flightManagement.html">Manage Flights</a></li>
+        <li><a href="searchFlights.html">Search Flights</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+
+      <div class="dropdown" style="float: right;vertical-align: middle;padding-top: 15px;background-color: transparent">
+        <button class="btn dropdown-toggle" type="button" data-toggle="dropdown" id="username">
+        </button>
+        <ul class="dropdown-menu dropdown-menu-right">
+          <li><a href="resetPassword.html">Reset Password</a></li>
+          <li class="divider"></li>
+          <li><a href="viewProfile.html">View Profile</a></li>
+          <li class="divider"></li>
+          <li><a onclick="logout()">Logout</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  <img  style="width: 100%;height: 400px;padding: 10px" src="https://images.all-free-download.com/images/graphicthumb/aircraft_in_flight_picture_7_168555.jpg">
+</div>
+</body>
+</html>
+
+<script>
+
+  function getUserName(){
+    var user = document.getElementById("username")
+    var obj = JSON.parse(localStorage.getItem("user"))
+    console.log(obj)
+    user.innerHTML = obj.name+'&nbsp;<span class="caret"></span>'
+  }
+
+  function logout() {
+    Swal.fire({
+      title: '<h3>Logging out!</h3>',
+      html: "<h5>Are you sure to logout!</h5>",
+      type: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Logout!'
+    }).then((result) => {
+      if (result.value) {
+        localStorage.removeItem("user")
+      }
+    })
+  }
+
+</script>

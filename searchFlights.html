@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Available Flights</title>
+
+  <link rel="stylesheet" href="css/customSelect.css">
+
+  <script src="https://www.w3schools.com/lib/w3.js"></script>
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <!-- fa -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+
+</head>
+<body>
+
+<div w3-include-html="navbar.html"></div>
+<script>
+  w3.includeHTML();
+</script>
+
+  <div class="container" style="margin-top: 20px;background-color: #f9f9f9;padding-top: 10px">
+
+    <form class="form-horizontal" action="/action_page.php">
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="departureCity">Departure City</label>
+
+        <div class="col-sm-5">
+          <div>
+            <select placeholder="enter departure city" name="departureCity" id="departureCity">
+              <option value="bangalore">Bangalore</option>
+              <option value="hyderabad">Hyderabad</option>
+              <option value="delhi">Delhi</option>
+              <option value="chennai">Chennai</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="departureCity">Arrival City</label>
+        <div class="col-sm-5">
+          <div>
+            <select placeholder="enter Arrival city" name="departureCity" id="arrivalCity">
+              <option value="bangalore">Bangalore</option>
+              <option value="hyderabad">Hyderabad</option>
+              <option value="delhi">Delhi</option>
+              <option value="chennai">Chennai</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="departureDate">Departure Date</label>
+        <div class="col-sm-5">
+          <input type="date" class="form-control" id="departureDate" placeholder="Enter Departure Date" name="departureDate">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="control-label col-sm-2" for="arrivalDate">Departure Date</label>
+        <div class="col-sm-5">
+          <input type="date" class="form-control" id="arrivalDate" placeholder="Enter Arrival Date" name="arrivalDate">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-success" style="width: 50%;">Fetch Flights</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+
+
+<script>
+  $(document).ready(function () {
+    var user = document.getElementById("username")
+    var obj = JSON.parse(localStorage.getItem("user"))
+    user.innerHTML = obj.name+'&nbsp;<span class="caret"></span>'
+  })
+</script>
+

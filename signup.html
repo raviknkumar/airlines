@@ -1,0 +1,116 @@
+<!doctype html>
+<html class="no-js" lang="">
+
+<head>
+  <meta charset="utf-8">
+  <title>Sign up</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- bootstrap -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+  <!-- fa -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+
+
+  <style>
+    .vertical-center {
+      margin-top: 10%;
+    }
+    .horizontal-center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  </style>
+
+</head>
+
+<body>
+
+<div class="container">
+  <div class="jumbotron horizontal-center vertical-center">
+    <h1 class="text-center">TCS AirLines</h1>
+    <h3>Welcome</h3>
+
+    <div class="input-group">
+      <span class="input-group-addon">
+        <i class="fa fa-user" aria-hidden="true"></i>
+      </span>
+      <input id="name" type="text" class="form-control" name="name" placeholder="name">
+    </div>
+
+    <div class="input-group" style="margin-top: 10px">
+      <span class="input-group-addon"><i class="fa fa-address-book" aria-hidden="true"></i></span>
+      <input id="address" type="text" class="form-control" name="address" placeholder="Address">
+    </div>
+
+    <div class="input-group" style="margin-top: 10px">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+      <input id="email" type="email" class="form-control" name="email" placeholder="Email">
+    </div>
+
+    <div class="input-group" style="margin-top: 10px">
+      <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+      <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+    </div>
+
+    <div class="container" style="margin-top: 10px">
+      <button type="button" onclick="signUp()"class="btn btn-success btn-lg btn-block">Sign Up</button>
+    </div>
+
+    <div style="margin-top: 10px">
+      <h4>
+        <a href="index.html"> Login </a> if you have an account already
+      </h4>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/vendor/modernizr-3.7.1.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+<script>window.jQuery || document.write('<script src="js/vendor/jquery-3.4.1.min.js"><\/script>')</script>
+<script src="js/plugins.js"></script>
+<script src="js/main.js"></script>
+
+<!-- Google Analytics: change UA-XXXXX-Y to be your site's ID. -->
+<script>
+  window.ga = function () { ga.q.push(arguments) }; ga.q = []; ga.l = +new Date;
+  ga('create', 'UA-XXXXX-Y', 'auto'); ga('set','transport','beacon'); ga('send', 'pageview')
+
+
+  function signUp()
+  {
+    var name = document.getElementById("name").value
+    var address = document.getElementById("address").value
+    var email = document.getElementById("email").value
+    var password = document.getElementById("password").value
+
+    let user = {}
+
+    user.name = name
+    user.address = address
+    user.email = email
+    user.password = password
+
+    if (typeof (Storage) !== "undefined") {
+      localStorage.setItem("user", JSON.stringify(user));
+      window.location.href = '/airlines/home.html'; //relative to domain
+    } else {
+      document.getElementById("result").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+  }
+
+
+</script>
+<script src="https://www.google-analytics.com/analytics.js" async></script>
+</body>
+
+</html>
