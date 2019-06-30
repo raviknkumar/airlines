@@ -116,7 +116,7 @@
       var password = document.getElementById("password").value
       let user = JSON.parse(localStorage.getItem("user"))
       if (password === user.password) {
-        window.location.href = '/airlines/home.html'; //relative to domain
+        window.location.href = '/home.html'; //relative to domain
       } else {
         Swal.fire({
           type: 'error',
